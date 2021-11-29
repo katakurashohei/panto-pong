@@ -7,6 +7,10 @@ TagManager:
   - wall
   - bar
   - ball
+  - Wall
+  - MeHandle
+  - player
+  - computer
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Walls2
   - 
   - 
   - 

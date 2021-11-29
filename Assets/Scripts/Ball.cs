@@ -2,30 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DualPantoFramework;
+using System.Threading.Tasks;
 
 public class Ball : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float speed = 5;
-    bool movementStarted = false;
-    PantoHandle itHandle;
-    
     public Vector3 ballDirection;
     
+    PantoHandle itHandle;
 
-    async void Start()
+    
+
+    void Start()
     {
         itHandle = GameObject.Find("Panto").GetComponent<LowerHandle>();
-        await itHandle.SwitchTo(gameObject, 20f);
-        movementStarted = true;
         ballDirection = new Vector3(2,0, -1).normalized;
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate((ballDirection * speed * Time.deltaTime));
+        if (!GameObject.FindObjectOfType<GameManager>().gameStarted) return;
+        transform.Translate(ballDirection * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,11 +33,18 @@ public class Ball : MonoBehaviour
             ballDirection.x = -ballDirection.x;
         }
 
-        if (other.gameObject.tag == "bar")
+        if (other.gameObject.tag == "computer" || other.gameObject.tag =="player")
         {
             ballDirection.z = -ballDirection.z;
             ballDirection.x = Random.Range(0.5f, 1.1f) * ballDirection.x;
             ballDirection.Normalize();
         }
+        
+    }
+    
+
+    public async Task ActivateBall()
+    {
+        await itHandle.SwitchTo(gameObject, 20f);
     }
 }
