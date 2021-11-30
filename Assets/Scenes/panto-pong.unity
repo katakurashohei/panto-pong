@@ -213,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1c00dfb8b04495fb21bb15b3fef341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStarted: 0
 --- !u!4 &365950503
 Transform:
   m_ObjectHideFlags: 0
@@ -385,7 +384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976649712}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5179341091029490ab9bc733414b7336, type: 3}
   m_Name: 
@@ -489,7 +488,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976649712}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 369f7f098e675490cb0b1c1e92ea735c, type: 3}
   m_Name: 
@@ -530,8 +529,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   ballDirection: {x: 0.8944272, y: 0, z: -0.4472136}
-  weakHitClip: {fileID: 8300000, guid: 4f4c69ac719f0492f9e8c60b7d390af6, type: 3}
-  strongHitClip: {fileID: 8300000, guid: c7bd1828e07584551a4d86c22da4abbd, type: 3}
 --- !u!114 &998062926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,7 +628,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998062924}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c7bd1828e07584551a4d86c22da4abbd, type: 3}
@@ -882,7 +879,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  level: 0.5
 --- !u!65 &1526626083
 BoxCollider:
   m_ObjectHideFlags: 0
