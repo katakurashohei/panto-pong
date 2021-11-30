@@ -6,25 +6,23 @@ using System.Threading.Tasks;
 
 public class PantoPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    PantoHandle upperHandle;
-    async void Start()
+    PantoHandle meHandle;
+    void Start()
     {
-        upperHandle = GameObject.Find("Panto").GetComponent<UpperHandle>();
-        // await ActivatePlayer();
+        meHandle = GameObject.Find("Panto").GetComponent<UpperHandle>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (!GameObject.FindObjectOfType<GameManager>().gameStarted) return;
-        transform.position = (upperHandle.HandlePosition(transform.position));
-        transform.eulerAngles = new Vector3(0, upperHandle.GetRotation(), 0);
+        transform.position = meHandle.HandlePosition(transform.position);
+        transform.eulerAngles = new Vector3(0, meHandle.GetRotation(), 0);
+        Debug.Log(meHandle.GetRotation());
     }
 
     public async Task ActivatePlayer()
     {
-        await upperHandle.SwitchTo(gameObject, 20f);
-        upperHandle.Free();
+        await meHandle.SwitchTo(gameObject, 20f);
+        meHandle.Free();
     }
 }
